@@ -4,7 +4,7 @@ import {motion} from "framer-motion";
 
 export default function Header() {
     return (
-        <motion.header layout className={"flex flex-row justify-around p-8 z-40"}>
+        <motion.header layout className={"flex flex-col md:flex-row justify-around p-8 z-40"}>
             <motion.p
                 whileHover={{scale: [null, 1.2, 1.1]}}
                 whileTap={{scale: 0.9}}
@@ -12,7 +12,10 @@ export default function Header() {
                 👨‍💻 Otieno Samwel
             </motion.p>
 
-            <div className={"flex space-x-4"}>
+
+            <div className={"h-3 md:hidden"}></div>
+
+            <div className={" flex flex-col md:flex-row md:space-x-4"}>
                 <HeaderText text={"🎬About"}/>
                 <HeaderText text={"📜Resume"}/>
                 <HeaderText text={"📧Contact"}/>
