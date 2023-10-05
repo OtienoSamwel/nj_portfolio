@@ -4,7 +4,7 @@ import Contact from "@/app/components/Contact";
 
 export default function Footer() {
     return (
-        <footer className={" mb-10 mt-30 flex flex-col w-full "}>
+        <footer id={"contact"} className={" mb-10 mt-30 flex flex-col w-full "}>
             <p className={"text-2xl mx-auto font-bold bg-gradient-to-bl from-red-700 to-white text-transparent bg-clip-text"}>
                 Contact me
             </p>

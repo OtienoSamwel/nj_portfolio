@@ -1,6 +1,7 @@
 "use client"
 
 import {motion} from "framer-motion";
+import Link from "next/link";
 
 export default function Header() {
     return (
@@ -16,23 +17,25 @@ export default function Header() {
             <div className={"h-3 md:hidden"}></div>
 
             <div className={" flex flex-col md:flex-row md:space-x-4"}>
-                <HeaderText text={"🎬About"}/>
-                <HeaderText text={"📜Resume"}/>
-                <HeaderText text={"📧Contact"}/>
-                <HeaderText text={"👷‍Projects"}/>
+                <HeaderText text={"🎬About"} navigationLink={"#about"}/>
+                <HeaderText text={"📜Resume"} navigationLink={"#resume"}/>
+                <HeaderText text={"📧Contact"} navigationLink={"#contact"}/>
+                <HeaderText text={"👷‍Projects"} navigationLink={"#projects"}/>
             </div>
 
         </motion.header>
     )
 }
 
-function HeaderText({text = ""}) {
+function HeaderText({text, navigationLink}: { text: String, navigationLink: string }) {
     return (
-        <motion.p
-            className={"font-light text-white"}
-            whileHover={{scale: [null, 1.2, 1.1]}}
-            whileTap={{scale: 0.9}}
-        >{text}
-        </motion.p>
+        <Link href={navigationLink}>
+            <motion.p
+                className={"font-light text-white"}
+                whileHover={{scale: [null, 1.2, 1.1]}}
+                whileTap={{scale: 0.9}}
+            >{text}
+            </motion.p>
+        </Link>
     )
 }
