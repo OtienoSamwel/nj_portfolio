@@ -44,7 +44,7 @@ export default function Page() {
                 <SpaceMedium/>
 
                 <Image src={"/splash_white.png"} alt={"splash"} width={"1263"} height={"574"}
-                       className={" mix-blend max-w-lg w-auto h-auto "}/>
+                       className={" mix-blend w-auto h-auto "}/>
             </section>
 
             <SpaceMedium/>
@@ -66,7 +66,10 @@ export default function Page() {
                         </li>))}
                     </ul>
 
-                    <CreativeGraphic/>
+                    <div className={"w-auto h-auto"}>
+                        <CreativeGraphic/>
+                    </div>
+
 
                 </div>
             </section>
@@ -117,11 +120,13 @@ function CreativeGraphic() {
     };
     return (
         <motion.svg
-            width="600"
-            height="600"
+            width="300"
+            height="300"
             viewBox="0 0 600 600"
             initial="hidden"
             animate="visible"
+
+            className={"w-auto h-auto"}
         >
             <motion.circle
                 cx="100"
