@@ -3,8 +3,8 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer"
 
 export const metadata = {
-    title: 'Next playground',
-    description: 'Testing next js new features',
+    title: 'Samwel Otieno',
+    description: 'Personal website',
 }
 
 export default function RootLayout({children,}: {
