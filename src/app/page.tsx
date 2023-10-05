@@ -32,8 +32,8 @@ export default function Page() {
 
     return (
         <section id={"about"} className={"border-gray-200 rounded-xl mx-auto py-20 px-10 "}>
-            <section className={"flex flex-col lg:flex-row space-x-20 mix-blend-lighten"}>
-                <div className={"flex flex-col max-w-md "}>
+            <section className={"flex flex-col lg:flex-row justify-around mix-blend-lighten"}>
+                <div className={"flex flex-col max-w-md min-w-0 "}>
                     <p className={"text-xl font-bold"}>Hello there 👋</p>
                     <p>I am an Android Developer with over two years of experience, known for my commitment to
                         excellence, technical proficiency, and unwavering attention to detail. I am dedicated to pushing
@@ -44,7 +44,7 @@ export default function Page() {
                 <SpaceMedium/>
 
                 <Image src={"/splash_white.png"} alt={"splash"} width={"1263"} height={"574"}
-                       className={" mix-blend w-auto h-auto "}/>
+                       className={" mix-blend w-auto h-auto min-w-0"}/>
             </section>
 
             <SpaceMedium/>
@@ -55,13 +55,19 @@ export default function Page() {
                 <p className={"text-4xl bg-gradient-to-bl font-bold  text-transparent bg-clip-text from-teal-400 to-green-50"}>Resume</p>
 
 
-                <SpaceMedium/>
+                <div>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                </div>
 
-                <div className={"flex  flex-col md:flex-row justify-around items-center"}>
+
+                <div className={"flex  flex-col lg:flex-row justify-between items-center"}>
 
                     <ul>
                         {experienceItems.map((item, index) => (<li key={index}>
                             <ExperienceItem company={item.company} timePeriod={item.timePeriod} skills={item.skills}/>
+                            <SpaceMedium/>
+                            <SpaceMedium/>
                             <SpaceMedium/>
                         </li>))}
                     </ul>
@@ -81,7 +87,7 @@ export default function Page() {
 
 function ExperienceItem({company, timePeriod, skills}: { company: String, timePeriod: String, skills: string[] }) {
     return (
-        <div className={"flex flex-col"}>
+        <div className={"flex flex-col min-w-0"}>
             <p className={"text-xl font-bold"}>{company}</p>
             <p className={"italic font-sans font-light"}>{timePeriod}</p>
             <ul>
@@ -126,7 +132,7 @@ function CreativeGraphic() {
             initial="hidden"
             animate="visible"
 
-            className={"w-auto h-auto"}
+            className={"w-auto h-auto min-w-0"}
         >
             <motion.circle
                 cx="100"
