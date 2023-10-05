@@ -18,7 +18,7 @@ export default function Page() {
                 "Maintained comprehensive knowledge of the mobile development cycle and addressed challenges arising in each phase."]
         },
         {
-            company: "Digisoft Solutions", timePeriod: "Jan 2021 Dec 2021", skills: [
+            company: "Digisoft Solutions", timePeriod: "Jan 2021 - Dec 2021", skills: [
                 "Tracked post-deployment bug reports to recognize and resolve trends among user-reported faults and complaints.",
                 "Led the development and deployment of a facial bio-metric system that was used to track employee clock-in times.",
                 "Improved the user experience by making the mobile application more responsive and less resource-intensive.",
@@ -63,7 +63,7 @@ export default function Page() {
 
                 <div className={"flex  flex-col lg:flex-row justify-between items-center"}>
 
-                    <ul>
+                    <ul className={"w-auto h-auto"}>
                         {experienceItems.map((item, index) => (<li key={index}>
                             <ExperienceItem company={item.company} timePeriod={item.timePeriod} skills={item.skills}/>
                             <SpaceMedium/>
@@ -93,10 +93,12 @@ function ExperienceItem({company, timePeriod, skills}: { company: String, timePe
             <ul>
                 {skills.map((skill: String, index: number) => (
                     <li key={index}>
-                        <div className={"flex flex-row items-center max-w-xl"}>
-                            <div className={"w-2 h-2 rounded-full bg-gradient-to-bl from-blue-400 to-red-800"}></div>
+                        <div className={"flex flex-row max-w-xl"}>
+                            <div className={"mt-2 w-3 h-1 rounded-full bg-gradient-to-bl from-blue-400 to-red-800"}></div>
+
                             <SpaceMedium/>
-                            <p className={"font-light"}>
+
+                            <p className={"font-light my-auto"}>
                                 {skill}
                             </p>
                         </div>
