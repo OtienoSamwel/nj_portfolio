@@ -69,7 +69,7 @@ export function Model({openModal, closeModal, children, onNext, onPrevious}: {
 
     return (
         <motion.dialog ref={dialogRef} onCancel={closeModal}
-                className={"flex flex-col justify-center rounded-xl  h-full w-full"}>
+                className={"flex flex-col justify-center rounded-xl  h-full w-full focus:border-0 focus:ring-0 border-0 ring-0 outline-0"}>
 
             <motion.div className={"flex  items-center bg-opacity-0"}>
 
