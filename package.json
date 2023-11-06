@@ -41,6 +41,8 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/react-lazy-load-image-component": "^1.6.2",
+    "@types/react-responsive-masonry": "^2.1.2",
     "eslint-config-next": "^13.4.1",
     "vite": "^4.3.1"
   }

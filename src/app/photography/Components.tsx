@@ -61,13 +61,18 @@ export function Model({openModal, closeModal, children, onNext, onPrevious}: {
 
     useEffect(() => {
         if (openModal) {
+
+            // @ts-ignore
             dialogRef.current.showModal()
         } else {
+            // @ts-ignore
             dialogRef.current.close()
         }
     })
 
+
     return (
+        // @ts-ignore
         <motion.dialog ref={dialogRef} onCancel={closeModal}
                 className={"flex flex-col justify-center rounded-xl  h-full w-full focus:border-0 focus:ring-0 border-0 ring-0 outline-0"}>
 
