@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Contact from "@/app/components/Contact";
+import { motion } from "framer-motion";
 
 export default function Footer() {
     return (
@@ -48,7 +49,7 @@ export default function Footer() {
 
 function IconButton({imageUrl = " ", linkUrl = ""}) {
     return (
-        <div>
+        <motion.div whileHover={{scale:1.2}} whileTap={{scale:1.3}}>
             <Link href={linkUrl}>
                 <Image src={imageUrl}
                        width={47}
@@ -56,7 +57,7 @@ function IconButton({imageUrl = " ", linkUrl = ""}) {
                        alt={"social link"}
                        className={"w-10 h-10"}/>
             </Link>
-        </div>
+        </motion.div>
     )
 }
 
