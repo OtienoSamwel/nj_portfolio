@@ -5,14 +5,15 @@ import Link from "next/link";
 
 export default function Header() {
     return (
-        <motion.header layout className={"flex flex-col md:flex-row justify-around p-8 z-40"}>
+        <motion.header layout className={"flex flex-col md:flex-row py-8 z-40 px-20 border-b border-amber-300 border-opacity-50"}>
             <motion.p
                 whileHover={{scale: [null, 1.2, 1.1]}}
                 whileTap={{scale: 0.9}}
                 className={"font-bold text-2xl bg-gradient-to-r from-blue-500 to-white via-amber-600 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-white hover:to-amber-600  hover:via-blue-500  inline-block"}>
-                👨‍💻 Otieno Samwel
+                <span className={"text-black"}>👨‍💻</span> Otieno Samwel
             </motion.p>
 
+            <div className={"flex flex-grow hidden md:block"}></div>
 
             <div className={"h-3 md:hidden"}></div>
 
@@ -21,6 +22,7 @@ export default function Header() {
                 <HeaderText text={"📜Resume"} navigationLink={"#resume"}/>
                 <HeaderText text={"📧Contact"} navigationLink={"#contact"}/>
                 <HeaderText text={"👷‍Projects"} navigationLink={"#projects"}/>
+                <HeaderText text={"🔨 Skills"} navigationLink={"#skills"}/>
             </div>
 
         </motion.header>
@@ -31,7 +33,7 @@ function HeaderText({text, navigationLink}: { text: String, navigationLink: stri
     return (
         <Link href={navigationLink}>
             <motion.p
-                className={"font-light text-white"}
+                className={"font-light text-xl text-white"}
                 whileHover={{scale: [null, 1.2, 1.1]}}
                 whileTap={{scale: 0.9}}
             >{text}

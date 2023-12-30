@@ -1,7 +1,5 @@
 import {ImageModel} from "@/app/photography/page";
 
-import {LazyLoadImage} from "react-lazy-load-image-component";
-
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 import {useEffect, useRef} from "react";
 import Image from "next/image";
@@ -13,26 +11,25 @@ export function GalleryImage({imageModel, onClick, index}: {
     index: number
 }) {
     return (
-        <motion.div onClick={onClick} className={"border-black border-4 rounded"}>
-            <LazyLoadImage src={imageModel.url} alt={"fantastic image"} className={"rounded"}/>
+        <motion.div onClick={onClick} className={"flex border-black border-4 rounded"}>
+            <Image src={imageModel.url} alt={"image"} width={"500"} height={"300"} className={"w-auto h-auto rounded"}/>
         </motion.div>
     )
 }
 
 export function SingleImage({url, onClick}: { url: string, onClick: () => void }) {
     return (
-        <motion.div onClick={onClick} className={" mx-auto rounded-xl bg-opacity-0 "}>
-            <LazyLoadImage src={url} alt={"find the map"}
-                           className={"mx-auto rounded-xl w-2/5 h-auto "}/>
+        <motion.div onClick={onClick} className={" flex mx-auto rounded-xl bg-opacity-0 "}>
+            <Image src={url} alt={"find the map"}
+                   className={"mx-auto rounded-xl w-auto h-auto "} width={"600"} height={"200"}/>
         </motion.div>
     )
 }
 
-
 export function Gallery(
     {images, handleClick}: { images: ImageModel[], handleClick: (model: ImageModel, index: number) => void }) {
     return (
-        <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 3, 900: 4}}>
+        <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
 
             <Masonry columnsCount={5}>
                 {images.map((item, index) => (
@@ -74,7 +71,7 @@ export function Model({openModal, closeModal, children, onNext, onPrevious}: {
     return (
         // @ts-ignore
         <motion.dialog ref={dialogRef} onCancel={closeModal}
-                className={"flex flex-col justify-center rounded-xl  h-full w-full focus:border-0 focus:ring-0 border-0 ring-0 outline-0"}>
+                       className={"flex flex-col justify-center rounded-xl  h-full w-full focus:border-0 focus:ring-0 border-0 ring-0 outline-0"}>
 
             <motion.div className={"flex  items-center bg-opacity-0"}>
 
