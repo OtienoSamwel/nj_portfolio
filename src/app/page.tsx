@@ -13,9 +13,9 @@ export default function Page() {
             company: "Unvius Inc",
             timePeriod: "Jan 2022 - Present",
             skills: [
-                "Migrated the project to a more stable architecture (MVVM). This led to boosted productivity in adding new features and maintaining the code base",
-                "Led the code base migration from Java to Kotlin and later introduced Jetpack Compose gradually for new features.",
-                "Maintained comprehensive knowledge of the mobile development cycle and addressed challenges arising in each phase."]
+                "Spearheaded migration from Java to Kotlin, establishing a robust architecture that led to enhanced scalability and productivity.",
+                "Transformed the Android audio streaming library from a paid service to a more scalable open-source WebRTC implementation leading to a significant reduction in running costs.",
+                "Worked with a team to track and squash bugs in production increasing the crash-free sessions to 99%. This increased user retention and positive application review significantly.", "Crafted the company's flagship landing page using Next.js and Tailwind CSS, ensuring a seamless and engaging online presence, this helped in funneling in new users to the application.", "Gathered and implemented user feedback, contributing to continuous improvement initiatives for the mobile application."]
         },
         {
             company: "Digisoft Solutions", timePeriod: "Jan 2021 - Dec 2021", skills: [
@@ -25,10 +25,39 @@ export default function Page() {
                 "Presented proposals to senior engineers and developers outlining enhancements designed to improve usability and increase potential ROI."
             ]
         },
-        {company: "", timePeriod: "", skills: []},
+        {
+            company: "Stemtrix", timePeriod: "Oct 2021 - Sep 2022", skills: [
+                "Taught fundamental coding principles to children using Python, emphasizing clarity and engagement.",
+                "Created an interactive environment, developing hands-on projects to enhance practical coding skills.",
+                "Instructed programmable circuit board fundamentals with the C++ programming language, ensuring a comprehensive understanding."
+            ]
+        },
         {company: "", timePeriod: "", skills: []},
     ]
 
+    const personalProjects: PersonalProject[] = [
+        {
+            name: "Casts",
+            description: "An adnroid application implementing Jetpack Media3 for seamles audio playback. ",
+            link: "https://github.com/otienosamwel/casts",
+            technologies: ["Android", "Jetpack Compose", "Media3", "Glide", "Kotlin", "Ktor-Client"]
+        },
+        {
+            name: "mpesa-stk-push",
+            description: "An mpesa library to perform stk push requests with minimal configuration.",
+            link: "https://github.com/OtienoSamwel/mpesa-stk-push",
+            technologies: ["Kotlin", "Ktor-Server", "Ktor-Client"]
+        }
+
+    ]
+    const openSourceContributions: PersonalProject[] = [
+        {
+            name: "Form builder",
+            description: "An android Jetpack Compose State management library.",
+            link: "https://github.com/jkuatdsc/form-builder",
+            technologies: ["Android", "Jetpack Compose", "Kotlin"]
+        }
+    ]
 
     return (
         <section className={"border-gray-200 rounded-xl mx-auto py-20 px-10 flex flex-col"}>
@@ -38,12 +67,13 @@ export default function Page() {
                     <section id={"about"} className={"flex flex-col lg:flex-row justify-around mix-blend-lighten"}>
                         <div className={"flex flex-col min-w-0 "}>
                             <p className={"text-xl font-bold"}>Hello there 👋</p>
-                            <p>I am an Android Developer with over two years of experience, known for my commitment to
-                                excellence, technical proficiency, and unwavering attention to detail. I am dedicated to
-                                pushing
-                                the boundaries of Android app development while maintaining a deep understanding of its
-                                core
-                                principles.</p>
+                            <p>This is Samwel Otieno, my friends call me Sam. I have been doing software development for
+                                the past three years and in that time I have worked with various technologies: Apache
+                                Cordova, IOT development, backend development with Ktor and Django, deployment (GCP),
+                                and CI workflows (Circle CI), frontend development with Nextjs, and Android Development
+                                with Jetpack Compose and Kotlin. My experience, however, has majorly leaned on
+                                developing mobile applications with Jetpack Compose. I am an avid learner and am just
+                                getting started in my learning journey.</p>
                         </div>
                     </section>
 
@@ -85,14 +115,32 @@ export default function Page() {
                     <hr/>
                     <SpaceMedium/>
                     {/*personal projects*/}
-                    <PersonalProjects/>
+                    <PersonalProjects personalProjects={personalProjects}/>
+                    <SpaceMedium/>
+
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <hr/>
+                    <SpaceMedium/>
+                    <OpenSourceContributions openSourceContributions={openSourceContributions}/>
+                    <SpaceMedium/>      
+                    <SpaceMedium/>  
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <hr/>
                 </div>
 
                 {/*column two*/}
                 <div className={"flex flex-col w-1/3 justify-around items-center"}>
                     <SpaceMedium/>
-                    <Image src={"/splash_white.png"} alt={"splash"} width={"1263"} height={"574"}
-                           className={" mix-blend w-auto h-auto min-w-0"}/>
+                    <motion.div whileHover={{scale: 1.4}} whileTap={{scale: 2}}
+                                transition={{type: "spring", duration: 1, damping: 50}} className={""}>
+                        <Image src={"/splash_white.png"} alt={"splash"} width={"1263"} height={"574"}
+                               className={" mix-blend w-auto h-auto min-w-0"}/>
+                    </motion.div>
+
                     <SpaceLarge/>
                     <div className={"w-auto h-auto"}>
                         <CreativeGraphic/>
@@ -128,7 +176,7 @@ function ExperienceItem({company, timePeriod, skills}: { company: String, timePe
 }
 
 
-function PersonalProjects() {
+function PersonalProjects({personalProjects}: { personalProjects: PersonalProject[] }) {
     return (
         <div id={"projects"} className={"flex flex-col"}>
 
@@ -141,6 +189,80 @@ function PersonalProjects() {
 
             <p className={"text-4xl bg-gradient-to-bl font-bold  text-transparent bg-clip-text from-red-400 to-green-50"}>Personal
                 Projects</p>
+
+            <div>
+                <SpaceMedium/>
+                <SpaceMedium/>
+                <SpaceMedium/>
+                <SpaceMedium/>
+            </div>
+
+            <ul>
+                {personalProjects.map((item: PersonalProject, index: number) => (<li key={index}>
+                    <p className={"text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-white"}>{item.name}</p>
+                    <SpaceMedium/>
+
+                    <p>{item.description}</p>
+
+                    <SpaceMedium/>
+
+                    <div className={"flex gap-4 flex-wrap "}>
+                        {item.technologies.map((item: string, index) => (<li key={index}>
+                            <TechnologyIcon name={item}/>
+                        </li>))}
+                    </div>
+
+                    <SpaceMedium/>
+                    <hr className={"p-2 opacity-20"}/>
+                </li>))}
+            </ul>
+
+        </div>
+    )
+}
+
+
+function OpenSourceContributions({openSourceContributions}: { openSourceContributions: PersonalProject[] }) {
+    return (
+        <div id={"projects"} className={"flex flex-col"}>
+
+            <div>
+                <SpaceMedium/>
+                <SpaceMedium/>
+                <SpaceMedium/>
+                <SpaceMedium/>
+            </div>
+
+            <p className={"text-4xl bg-gradient-to-bl font-bold  text-transparent bg-clip-text from-red-400 to-green-50"}>Open
+                Source Contributions</p>
+
+            <div>
+                <SpaceMedium/>
+                <SpaceMedium/>
+                <SpaceMedium/>
+                <SpaceMedium/>
+            </div>
+
+            <ul>
+                {openSourceContributions.map((item: PersonalProject, index: number) => (<li key={index}>
+                    <p className={"text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-white"}>{item.name}</p>
+                    <SpaceMedium/>
+
+                    <p>{item.description}</p>
+
+                    <SpaceMedium/>
+
+                    <div className={"flex gap-4 flex-wrap "}>
+                        {item.technologies.map((item: string, index) => (<li key={index}>
+                            <TechnologyIcon name={item}/>
+                        </li>))}
+                    </div>
+
+                    <SpaceMedium/>
+                    <hr className={"p-2 opacity-20"}/>
+                </li>))}
+            </ul>
+
         </div>
     )
 }
@@ -2206,4 +2328,21 @@ interface ExperienceItemModel {
     company: String,
     timePeriod: String,
     skills: string[]
+}
+
+
+interface PersonalProject {
+    name: String,
+    description: String,
+    link: String,
+    technologies: string[]
+}
+
+function TechnologyIcon({name}: { name: string }) {
+    return (
+        <motion.div whileHover={{scale: 1.1}}
+                    className={"bg-blue-500 rounded-full p-2 text-sm text-white hover:bg-blue-400"}>
+            {name}
+        </motion.div>
+    )
 }
