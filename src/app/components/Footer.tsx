@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import Image from "next/image";
 import Contact from "@/app/components/Contact";
@@ -6,36 +7,40 @@ export default function Footer() {
     return (
         <footer id={"contact"} className={" mb-10 mt-30 flex flex-col w-full mx-auto"}>
             <div className={" flex flex-col"}>
-                <p className={"mx-auto text-2xl font-bold bg-gradient-to-bl from-red-700 to-white text-transparent bg-clip-text"}>
-                    Contact me
-                </p>
 
                 <SpaceMedium/>
 
                 <div className={"flex flex-row mx-auto"}>
-                    <div className={"bg-gradient-to-br from-blue-600 to-white rounded-full"}>
+                    <div className={""}>
                         <IconButton imageUrl={"linked_in_elem.svg"}
                                     linkUrl={"https://www.linkedin.com/in/otienosamwel/"}/>
                     </div>
 
                     <SpaceMedium/>
-                    <div className={"bg-gradient-to-br from-red-700 to-blue-600 rounded-full "}>
+                    <div className={""}>
                         <IconButton imageUrl={"github-mark.svg"} linkUrl={"https://github.com/otienosamwel"}/>
                     </div>
 
                     <SpaceMedium/>
 
-                    <div className={"bg-gradient-to-br from-blue-400 to-black rounded-full"}>
+                    <div className={""}>
                         <IconButton imageUrl={"twitter_elem.svg"} linkUrl={"https://twitter.com/otienosamwel_"}/>
                     </div>
+
+                    <SpaceMedium/>
+
+                    <div className={"border-r-2 h-10 opacity-30"}></div>
+
+                    <SpaceMedium/>
+
+                    <Contact/>
+
 
                 </div>
 
                 <SpaceMedium/>
 
-                <div className={"mx-auto"}>
-                    <Contact/>
-                </div>
+
             </div>
         </footer>
     )

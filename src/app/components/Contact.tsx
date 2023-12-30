@@ -1,12 +1,12 @@
+"use client"
+
 import Link from "next/link";
 
 export default function Contact() {
     return (
         <div className={""}>
-            <Link href={"mailto:otienosamwelmitto@gmail.com"} className={"w-auto"}>
-                <p className={"text-sm text-blue-500 underline"}>
-                    otienosamwelmitto@gmail.com
-                </p>
+            <Link href={"mailto:otienosamwelmitto@gmail.com"}>
+                <p className={"text-4xl text-blue-500"}>e</p>
             </Link>
         </div>
     )

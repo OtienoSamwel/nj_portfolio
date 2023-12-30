@@ -4,6 +4,7 @@ import Image from "next/image";
 import {SpaceLarge, SpaceMedium} from "@/app/components/Footer";
 
 import {motion} from "framer-motion";
+import {NoSSR} from "next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr";
 
 
 export default function Page() {
@@ -16,23 +17,28 @@ export default function Page() {
                 "Spearheaded migration from Java to Kotlin, establishing a robust architecture that led to enhanced scalability and productivity.",
                 "Transformed the Android audio streaming library from a paid service to a more scalable open-source WebRTC implementation leading to a significant reduction in running costs.",
                 "Worked with a team to track and squash bugs in production increasing the crash-free sessions to 99%. This increased user retention and positive application review significantly.", "Crafted the company's flagship landing page using Next.js and Tailwind CSS, ensuring a seamless and engaging online presence, this helped in funneling in new users to the application.", "Gathered and implemented user feedback, contributing to continuous improvement initiatives for the mobile application."]
+            ,
+            technologies: ["Android", "XML", "Jetpack Compose", "Coil", "Hilt", "Kotlin Coroutines", "Java", "Nextjs", "Typescript", "Nginx"]
         },
         {
-            company: "Digisoft Solutions", timePeriod: "Jan 2021 - Dec 2021", skills: [
+            company: "Digisoft Solutions",
+            timePeriod: "Jan 2021 - Dec 2021",
+            skills: [
                 "Tracked post-deployment bug reports to recognize and resolve trends among user-reported faults and complaints.",
                 "Led the development and deployment of a facial bio-metric system that was used to track employee clock-in times.",
                 "Improved the user experience by making the mobile application more responsive and less resource-intensive.",
                 "Presented proposals to senior engineers and developers outlining enhancements designed to improve usability and increase potential ROI."
-            ]
+            ],
+            technologies: ["Apache Cordova", "Java", "PHP", "Android", "CameraX", "Ktor-Client", "Kotlin", "Kotlin Coroutines", "React Native"]
         },
         {
             company: "Stemtrix", timePeriod: "Oct 2021 - Sep 2022", skills: [
                 "Taught fundamental coding principles to children using Python, emphasizing clarity and engagement.",
                 "Created an interactive environment, developing hands-on projects to enhance practical coding skills.",
                 "Instructed programmable circuit board fundamentals with the C++ programming language, ensuring a comprehensive understanding."
-            ]
+            ], technologies: ["Internet of things", "C++", "Python", "Arduino"]
         },
-        {company: "", timePeriod: "", skills: []},
+        {company: "", timePeriod: "", skills: [], technologies: []},
     ]
 
     const personalProjects: PersonalProject[] = [
@@ -61,9 +67,9 @@ export default function Page() {
 
     return (
         <section className={"border-gray-200 rounded-xl mx-auto py-20 px-10 flex flex-col"}>
-            <div className={"flex justify-around"}>
+            <div className={"flex flex-col md:flex-row justify-around"}>
                 {/*column one*/}
-                <div className={"w-1/3"}>
+                <div className={"md:w-1/3"}>
                     <section id={"about"} className={"flex flex-col lg:flex-row justify-around mix-blend-lighten"}>
                         <div className={"flex flex-col min-w-0 "}>
                             <p className={"text-xl font-bold"}>Hello there 👋</p>
@@ -93,10 +99,11 @@ export default function Page() {
                         </div>
                         <div className={"flex  flex-col lg:flex-row justify-between items-center"}>
                             <ul className={"w-auto h-auto"}>
-                                {experienceItems.map((item, index) => (<li key={index}>
-                                    <ExperienceItem company={item.company} timePeriod={item.timePeriod}
-                                                    skills={item.skills}/>
-                                </li>))}
+                                {experienceItems.map((item, index) => (
+                                    <li key={index}>
+                                        <ExperienceItem company={item.company} timePeriod={item.timePeriod}
+                                                        skills={item.skills} technologies={item.technologies}/>
+                                    </li>))}
                             </ul>
                         </div>
                     </section>
@@ -125,22 +132,21 @@ export default function Page() {
                     <hr/>
                     <SpaceMedium/>
                     <OpenSourceContributions openSourceContributions={openSourceContributions}/>
-                    <SpaceMedium/>      
-                    <SpaceMedium/>  
+                    <SpaceMedium/>
+                    <SpaceMedium/>
                     <SpaceMedium/>
                     <SpaceMedium/>
                     <hr/>
                 </div>
 
                 {/*column two*/}
-                <div className={"flex flex-col w-1/3 justify-around items-center"}>
+                <div className={"flex flex-col md:w-1/3 justify-around items-center"}>
                     <SpaceMedium/>
                     <motion.div whileHover={{scale: 1.4}} whileTap={{scale: 2}}
                                 transition={{type: "spring", duration: 1, damping: 50}} className={""}>
                         <Image src={"/splash_white.png"} alt={"splash"} width={"1263"} height={"574"}
                                className={" mix-blend w-auto h-auto min-w-0"}/>
                     </motion.div>
-
                     <SpaceLarge/>
                     <div className={"w-auto h-auto"}>
                         <CreativeGraphic/>
@@ -152,7 +158,12 @@ export default function Page() {
     )
 }
 
-function ExperienceItem({company, timePeriod, skills}: { company: String, timePeriod: String, skills: string[] }) {
+function ExperienceItem({company, timePeriod, skills, technologies}: {
+    company: String,
+    timePeriod: String,
+    skills: string[],
+    technologies: string[]
+}) {
     return (
         <div className={"flex flex-col min-w-0"}>
             <p className={"text-xl font-bold underline"}>{company}</p>
@@ -171,6 +182,15 @@ function ExperienceItem({company, timePeriod, skills}: { company: String, timePe
                     </li>
                 ))}
             </ul>
+
+            <ul className={"flex flex-wrap gap-2"}>
+                {technologies.map((item: string, index: number) => (<li key={index}>
+                    <TechnologyIcon name={item}/>
+                </li>))}
+            </ul>
+
+            <SpaceMedium/>
+            <SpaceMedium/>
         </div>
     )
 }
@@ -178,46 +198,50 @@ function ExperienceItem({company, timePeriod, skills}: { company: String, timePe
 
 function PersonalProjects({personalProjects}: { personalProjects: PersonalProject[] }) {
     return (
-        <div id={"projects"} className={"flex flex-col"}>
+        <NoSSR>
+            <div id={"projects"} className={"flex flex-col"}>
 
-            <div>
-                <SpaceMedium/>
-                <SpaceMedium/>
-                <SpaceMedium/>
-                <SpaceMedium/>
+
+                <div>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                </div>
+
+                <p className={"text-4xl bg-gradient-to-bl font-bold  text-transparent bg-clip-text from-red-400 to-green-50"}>Personal
+                    Projects</p>
+
+                <div>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                </div>
+
+                <ul>
+                    {personalProjects.map((item: PersonalProject, index: number) => (<li key={index}>
+                        <p className={"text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-white"}>{item.name}</p>
+                        <SpaceMedium/>
+
+                        <p>{item.description}</p>
+
+                        <SpaceMedium/>
+
+                        <div className={"flex gap-4 flex-wrap "}>
+                            {item.technologies.map((item: string, index) => (<li key={index}>
+                                <TechnologyIcon name={item}/>
+                            </li>))}
+                        </div>
+
+                        <SpaceMedium/>
+                        <hr className={"p-2 opacity-20"}/>
+                    </li>))}
+                </ul>
+
             </div>
+        </NoSSR>
 
-            <p className={"text-4xl bg-gradient-to-bl font-bold  text-transparent bg-clip-text from-red-400 to-green-50"}>Personal
-                Projects</p>
-
-            <div>
-                <SpaceMedium/>
-                <SpaceMedium/>
-                <SpaceMedium/>
-                <SpaceMedium/>
-            </div>
-
-            <ul>
-                {personalProjects.map((item: PersonalProject, index: number) => (<li key={index}>
-                    <p className={"text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-white"}>{item.name}</p>
-                    <SpaceMedium/>
-
-                    <p>{item.description}</p>
-
-                    <SpaceMedium/>
-
-                    <div className={"flex gap-4 flex-wrap "}>
-                        {item.technologies.map((item: string, index) => (<li key={index}>
-                            <TechnologyIcon name={item}/>
-                        </li>))}
-                    </div>
-
-                    <SpaceMedium/>
-                    <hr className={"p-2 opacity-20"}/>
-                </li>))}
-            </ul>
-
-        </div>
     )
 }
 
@@ -2210,6 +2234,9 @@ function CreativeGraphic() {
             initial="hidden"
             animate="visible"
 
+            whileHover={{scale: 1.5}}
+            transition={{type: "spring", stiffness: 80}}
+
             className={"w-auto h-auto min-w-0"}
         >
             <motion.circle
@@ -2327,7 +2354,8 @@ function CreativeGraphic() {
 interface ExperienceItemModel {
     company: String,
     timePeriod: String,
-    skills: string[]
+    skills: string[],
+    technologies: string[]
 }
 
 

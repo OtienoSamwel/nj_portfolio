@@ -5,7 +5,8 @@ import Link from "next/link";
 
 export default function Header() {
     return (
-        <motion.header layout className={"flex flex-col md:flex-row py-8 z-40 px-20 border-b border-amber-300 border-opacity-50"}>
+        <motion.header layout
+                       className={"flex flex-col md:flex-row py-8 z-40 px-20 border-b border-amber-300 border-opacity-20"}>
             <motion.p
                 whileHover={{scale: [null, 1.2, 1.1]}}
                 whileTap={{scale: 0.9}}
@@ -20,9 +21,9 @@ export default function Header() {
             <div className={" flex flex-col md:flex-row md:space-x-4"}>
                 <HeaderText text={"🎬About"} navigationLink={"#about"}/>
                 <HeaderText text={"📜Resume"} navigationLink={"#resume"}/>
-                <HeaderText text={"📧Contact"} navigationLink={"#contact"}/>
-                <HeaderText text={"👷‍Projects"} navigationLink={"#projects"}/>
                 <HeaderText text={"🔨 Skills"} navigationLink={"#skills"}/>
+                <HeaderText text={"👷‍Projects"} navigationLink={"#projects"}/>
+                <HeaderText text={"📧Contact"} navigationLink={"#contact"}/>
             </div>
 
         </motion.header>

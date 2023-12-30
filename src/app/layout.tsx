@@ -20,9 +20,12 @@ export default function RootLayout({children,}: {
             <SpaceMedium/>
             <SpaceMedium/>
             <SpaceMedium/>
+            <SpaceMedium/>
+            <SpaceMedium/>
+            <SpaceMedium/>
         </div>
 
-        <hr className={"opacity-20"}/>
+        <hr className={"opacity-20 mx-auto w-1/4"}/>
 
         <div>
             <SpaceMedium/>
