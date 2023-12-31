@@ -11,7 +11,7 @@ export default function Page() {
 
     const experienceItems: ExperienceItemModel[] = [
         {
-            company: "Unvius Inc",
+            company: "Univus Inc",
             timePeriod: "Jan 2022 - Present",
             skills: [
                 "Spearheaded migration from Java to Kotlin, establishing a robust architecture that led to enhanced scalability and productivity.",
@@ -140,7 +140,10 @@ export default function Page() {
                 </div>
 
                 {/*column two*/}
-                <div className={"flex flex-col md:w-1/3 justify-around items-center"}>
+                <div className={"hidden md:flex flex-col md:w-1/3 justify-around items-center"}>
+
+                    <motion.div whileHover={{scale:1.2}} transition={{type:"spring", duration:2}} className={"motion-safe:animate-pulse h-80 w-80 rounded-full shadow-2xl shadow-red-800"}>
+                    </motion.div>
                     <SpaceMedium/>
                     <motion.div whileHover={{scale: 1.4}} whileTap={{scale: 2}}
                                 transition={{type: "spring", duration: 1, damping: 50}} className={""}>
