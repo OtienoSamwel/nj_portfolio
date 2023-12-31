@@ -44,7 +44,7 @@ export default function Page() {
     const personalProjects: PersonalProject[] = [
         {
             name: "Casts",
-            description: "An adnroid application implementing Jetpack Media3 for seamles audio playback. ",
+            description: "An android application implementing Jetpack Media3 for seamless audio playback.",
             link: "https://github.com/otienosamwel/casts",
             technologies: ["Android", "Jetpack Compose", "Media3", "Glide", "Kotlin", "Ktor-Client"]
         },
@@ -53,6 +53,24 @@ export default function Page() {
             description: "An mpesa library to perform stk push requests with minimal configuration.",
             link: "https://github.com/OtienoSamwel/mpesa-stk-push",
             technologies: ["Kotlin", "Ktor-Server", "Ktor-Client"]
+        },
+        {
+            name: "compose-doodles",
+            description: "My experiments with Jetpack Compose",
+            link: "https://github.com/OtienoSamwel/mpesa-stk-push",
+            technologies: ["Kotlin", "Android", "Jetpack Compose"]
+        },
+        {
+            name: "simple chat",
+            description: "A simple chat cient with the bare minimum chat functionality.",
+            link: "https://github.com/OtienoSamwel/simple-chat",
+            technologies: ["Kotlin", "Android", "Jetpack Compose","Ktor-Client", "Websockets"]
+        },
+        {
+            name: "simple chat server",
+            description: "A websocket server that hosts a single group chat.",
+            link: "https://github.com/OtienoSamwel/chat-server",
+            technologies: ["Kotlin", "Android", "Jetpack Compose","Ktor-Client", "Websockets"]
         }
 
     ]
@@ -142,7 +160,8 @@ export default function Page() {
                 {/*column two*/}
                 <div className={"hidden md:flex flex-col md:w-1/3 justify-around items-center"}>
 
-                    <motion.div whileHover={{scale:1.2}} transition={{type:"spring", duration:2}} className={"motion-safe:animate-pulse h-80 w-80 rounded-full shadow-2xl shadow-red-800"}>
+                    <motion.div whileHover={{scale: 1.2}} transition={{type: "spring", duration: 2}}
+                                className={"motion-safe:animate-pulse h-80 w-80 rounded-full shadow-2xl shadow-red-800"}>
                     </motion.div>
                     <SpaceMedium/>
                     <motion.div whileHover={{scale: 1.4}} whileTap={{scale: 2}}
