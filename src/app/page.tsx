@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import {SpaceLarge, SpaceMedium} from "@/app/components/Footer";
-
+import Link from "next/link";
 import {motion} from "framer-motion";
 import {NoSSR} from "next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr";
 
@@ -21,6 +21,16 @@ export default function Page() {
             technologies: ["Android", "XML", "Jetpack Compose", "Coil", "Hilt", "Kotlin Coroutines", "Java", "Nextjs", "Typescript", "Nginx"]
         },
         {
+            company: "LegalTech Kenya",
+            timePeriod: "Feb 2023 - Dec 2023",
+            skills: [
+                "Wrote scripts for web legal data harvesting. This data was used to fine-tune an LLM model to respond to historical legal questions.",
+                "Acted timely on user feedback regarding the platform.",
+                "Work with a team to build various internal company tools.",
+                "Worked on various company client projects promptly."
+            ],
+            technologies: ["HTML", "CSS", "Django", "Django-Rest-Framework"]
+        }, {
             company: "Digisoft Solutions",
             timePeriod: "Jan 2021 - Dec 2021",
             skills: [
@@ -64,13 +74,13 @@ export default function Page() {
             name: "simple chat",
             description: "A simple chat cient with the bare minimum chat functionality.",
             link: "https://github.com/OtienoSamwel/simple-chat",
-            technologies: ["Kotlin", "Android", "Jetpack Compose","Ktor-Client", "Websockets"]
+            technologies: ["Kotlin", "Android", "Jetpack Compose", "Ktor-Client", "Websockets"]
         },
         {
             name: "simple chat server",
             description: "A websocket server that hosts a single group chat.",
             link: "https://github.com/OtienoSamwel/chat-server",
-            technologies: ["Kotlin", "Android", "Jetpack Compose","Ktor-Client", "Websockets"]
+            technologies: ["Kotlin", "Android", "Jetpack Compose", "Ktor-Client", "Websockets"]
         }
 
     ]
@@ -243,7 +253,11 @@ function PersonalProjects({personalProjects}: { personalProjects: PersonalProjec
 
                 <ul>
                     {personalProjects.map((item: PersonalProject, index: number) => (<li key={index}>
-                        <p className={"text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-white"}>{item.name}</p>
+                        <motion.div whileHover={{scale: 1.09}} whileTap={{scale: 1.05}}>
+                            <Link href={item.link} className={"flex"}>
+                                <p className={"text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-white"}>{item.name}</p>
+                            </Link>
+                        </motion.div>
                         <SpaceMedium/>
 
                         <p>{item.description}</p>
