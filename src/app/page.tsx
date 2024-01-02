@@ -254,7 +254,7 @@ function PersonalProjects({personalProjects}: { personalProjects: PersonalProjec
                 <ul>
                     {personalProjects.map((item: PersonalProject, index: number) => (<li key={index}>
                         <motion.div whileHover={{scale: 1.09}} whileTap={{scale: 1.05}}>
-                            <Link href={item.link} className={"flex"}>
+                            <Link href={`${item.link}`} className={"flex"}>
                                 <p className={"text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-white"}>{item.name}</p>
                             </Link>
                         </motion.div>
