@@ -5,94 +5,10 @@ import {SpaceLarge, SpaceMedium} from "@/app/components/Footer";
 import Link from "next/link";
 import {motion} from "framer-motion";
 import {NoSSR} from "next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr";
+import {experienceItems, personalProjects, personalProjectsUnderConstruction, openSourceContributions} from "./components/home/data";
 
 
 export default function Page() {
-
-    const experienceItems: ExperienceItemModel[] = [
-        {
-            company: "Univus Inc",
-            timePeriod: "Jan 2022 - Present",
-            skills: [
-                "Spearheaded migration from Java to Kotlin, establishing a robust architecture that led to enhanced scalability and productivity.",
-                "Transformed the Android audio streaming library from a paid service to a more scalable open-source WebRTC implementation leading to a significant reduction in running costs.",
-                "Worked with a team to track and squash bugs in production increasing the crash-free sessions to 99%. This increased user retention and positive application review significantly.", "Crafted the company's flagship landing page using Next.js and Tailwind CSS, ensuring a seamless and engaging online presence, this helped in funneling in new users to the application.", "Gathered and implemented user feedback, contributing to continuous improvement initiatives for the mobile application."]
-            ,
-            technologies: ["Android", "XML", "Jetpack Compose", "Coil", "Hilt", "Kotlin Coroutines", "Java", "Nextjs", "Typescript", "Nginx"]
-        },
-        {
-            company: "LegalTech Kenya",
-            timePeriod: "Feb 2023 - Dec 2023",
-            skills: [
-                "Wrote scripts for web legal data harvesting. This data was used to fine-tune an LLM model to respond to historical legal questions.",
-                "Acted timely on user feedback regarding the platform.",
-                "Work with a team to build various internal company tools.",
-                "Worked on various company client projects promptly."
-            ],
-            technologies: ["HTML", "CSS", "Django", "Django-Rest-Framework"]
-        }, {
-            company: "Digisoft Solutions",
-            timePeriod: "Jan 2021 - Dec 2021",
-            skills: [
-                "Tracked post-deployment bug reports to recognize and resolve trends among user-reported faults and complaints.",
-                "Led the development and deployment of a facial bio-metric system that was used to track employee clock-in times.",
-                "Improved the user experience by making the mobile application more responsive and less resource-intensive.",
-                "Presented proposals to senior engineers and developers outlining enhancements designed to improve usability and increase potential ROI."
-            ],
-            technologies: ["Apache Cordova", "Java", "PHP", "Android", "CameraX", "Ktor-Client", "Kotlin", "Kotlin Coroutines", "React Native"]
-        },
-        {
-            company: "Stemtrix", timePeriod: "Oct 2021 - Sep 2022", skills: [
-                "Taught fundamental coding principles to children using Python, emphasizing clarity and engagement.",
-                "Created an interactive environment, developing hands-on projects to enhance practical coding skills.",
-                "Instructed programmable circuit board fundamentals with the C++ programming language, ensuring a comprehensive understanding."
-            ], technologies: ["Internet of things", "C++", "Python", "Arduino"]
-        },
-        {company: "", timePeriod: "", skills: [], technologies: []},
-    ]
-
-    const personalProjects: PersonalProject[] = [
-        {
-            name: "Casts",
-            description: "An android application implementing Jetpack Media3 for seamless audio playback.",
-            link: "https://github.com/otienosamwel/casts",
-            technologies: ["Android", "Jetpack Compose", "Media3", "Glide", "Kotlin", "Ktor-Client"]
-        },
-        {
-            name: "mpesa-stk-push",
-            description: "An mpesa library to perform stk push requests with minimal configuration.",
-            link: "https://github.com/OtienoSamwel/mpesa-stk-push",
-            technologies: ["Kotlin", "Ktor-Server", "Ktor-Client"]
-        },
-        {
-            name: "compose-doodles",
-            description: "My experiments with Jetpack Compose",
-            link: "https://github.com/OtienoSamwel/mpesa-stk-push",
-            technologies: ["Kotlin", "Android", "Jetpack Compose"]
-        },
-        {
-            name: "simple chat",
-            description: "A simple chat cient with the bare minimum chat functionality.",
-            link: "https://github.com/OtienoSamwel/simple-chat",
-            technologies: ["Kotlin", "Android", "Jetpack Compose", "Ktor-Client", "Websockets"]
-        },
-        {
-            name: "simple chat server",
-            description: "A websocket server that hosts a single group chat.",
-            link: "https://github.com/OtienoSamwel/chat-server",
-            technologies: ["Kotlin", "Android", "Jetpack Compose", "Ktor-Client", "Websockets"]
-        }
-
-    ]
-    const openSourceContributions: PersonalProject[] = [
-        {
-            name: "Form builder",
-            description: "An android Jetpack Compose State management library.",
-            link: "https://github.com/jkuatdsc/form-builder",
-            technologies: ["Android", "Jetpack Compose", "Kotlin"]
-        }
-    ]
-
     return (
         <section className={"border-gray-200 rounded-xl mx-auto py-20 px-10 flex flex-col"}>
             <div className={"flex flex-col md:flex-row justify-around"}>
@@ -113,7 +29,6 @@ export default function Page() {
 
                     <div>
                         <SpaceLarge/>
-
                         <hr/>
                         <SpaceLarge/>
                     </div>
@@ -143,33 +58,26 @@ export default function Page() {
                     {/*skills section*/}
                     <Skills/>
 
-                    <SpaceMedium/>
-                    <SpaceMedium/>
-                    <SpaceMedium/>
-                    <SpaceMedium/>
+                    <SpaceLarge/>
+
                     <hr/>
                     <SpaceMedium/>
                     {/*personal projects*/}
                     <PersonalProjects personalProjects={personalProjects}/>
                     <SpaceMedium/>
-
-                    <SpaceMedium/>
-                    <SpaceMedium/>
-                    <SpaceMedium/>
-                    <SpaceMedium/>
+                    <SpaceLarge/>
                     <hr/>
                     <SpaceMedium/>
                     <OpenSourceContributions openSourceContributions={openSourceContributions}/>
-                    <SpaceMedium/>
-                    <SpaceMedium/>
-                    <SpaceMedium/>
-                    <SpaceMedium/>
+                    <SpaceLarge/>
                     <hr/>
+                    <SpaceLarge/>
+
+                    <UnderConstruction personalProjects={personalProjectsUnderConstruction}/>
                 </div>
 
                 {/*column two*/}
                 <div className={"hidden md:flex flex-col md:w-1/3 justify-around items-center"}>
-
                     <motion.div whileHover={{scale: 1.2}} transition={{type: "spring", duration: 2}}
                                 className={"motion-safe:animate-pulse h-80 w-80 rounded-full shadow-2xl shadow-red-800"}>
                     </motion.div>
@@ -243,6 +151,59 @@ function PersonalProjects({personalProjects}: { personalProjects: PersonalProjec
 
                 <p className={"text-4xl bg-gradient-to-bl font-bold  text-transparent bg-clip-text from-red-400 to-green-50"}>Personal
                     Projects</p>
+
+                <div>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                </div>
+
+                <ul>
+                    {personalProjects.map((item: PersonalProject, index: number) => (<li key={index}>
+                        <motion.div whileHover={{scale: 1.09}} whileTap={{scale: 1.05}}>
+                            <Link href={`${item.link}`} className={"flex"}>
+                                <p className={"text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-yellow-500 to-white"}>{item.name}</p>
+                            </Link>
+                        </motion.div>
+                        <SpaceMedium/>
+
+                        <p>{item.description}</p>
+
+                        <SpaceMedium/>
+
+                        <div className={"flex gap-4 flex-wrap "}>
+                            {item.technologies.map((item: string, index) => (<li key={index}>
+                                <TechnologyIcon name={item}/>
+                            </li>))}
+                        </div>
+
+                        <SpaceMedium/>
+                        <hr className={"p-2 opacity-20"}/>
+                    </li>))}
+                </ul>
+
+            </div>
+        </NoSSR>
+
+    )
+}
+
+function UnderConstruction({personalProjects}: { personalProjects: PersonalProject[] }) {
+    return (
+        <NoSSR>
+            <div id={"projects"} className={"flex flex-col"}>
+
+
+                <div>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                    <SpaceMedium/>
+                </div>
+
+                <p className={"text-4xl bg-gradient-to-bl font-bold  text-transparent bg-clip-text from-red-400 to-green-50"}>Under
+                    Construction</p>
 
                 <div>
                     <SpaceMedium/>
@@ -2387,7 +2348,7 @@ function CreativeGraphic() {
     )
 }
 
-interface ExperienceItemModel {
+export interface ExperienceItemModel {
     company: String,
     timePeriod: String,
     skills: string[],
@@ -2395,7 +2356,7 @@ interface ExperienceItemModel {
 }
 
 
-interface PersonalProject {
+export interface PersonalProject {
     name: String,
     description: String,
     link: String,
