@@ -1,6 +1,6 @@
 import './globals.css'
 import Header from "@/app/components/Header";
-import Footer, {SpaceMedium} from "@/app/components/Footer"
+import Footer, {SpaceLarge} from "@/app/components/Footer"
 
 export const metadata = {
     title: 'Samwel Otieno',
@@ -17,21 +17,12 @@ export default function RootLayout({children,}: {
         {children}
 
         <div>
-            <SpaceMedium/>
-            <SpaceMedium/>
-            <SpaceMedium/>
-            <SpaceMedium/>
-            <SpaceMedium/>
-            <SpaceMedium/>
+            <SpaceLarge/>
         </div>
 
         <hr className={"opacity-20 mx-auto w-1/4"}/>
 
-        <div>
-            <SpaceMedium/>
-            <SpaceMedium/>
-            <SpaceMedium/>
-        </div>
+        <SpaceLarge/>
         <Footer/>
         </body>
         </html>
