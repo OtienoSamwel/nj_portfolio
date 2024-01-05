@@ -13,6 +13,8 @@
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^0.9.304",
     "@supabase/supabase-js": "^2.38.4",
+    "@tsparticles/engine": "^3.0.3",
+    "@tsparticles/react": "^3.0.0",
     "@types/node": "18.15.13",
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",

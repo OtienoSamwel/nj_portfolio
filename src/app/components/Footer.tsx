@@ -9,7 +9,7 @@ export default function Footer() {
         <footer id={"contact"} className={" mb-10 mt-30 flex flex-col w-full mx-auto"}>
             <div className={" flex flex-col"}>
                 <SpaceMedium/>
-                <div className={"flex flex-row mx-auto"}>
+                <div className={"flex flex-row mx-auto items-center"}>
                     <div className={""}>
                         <IconButton imageUrl={"linked_in_elem.svg"}
                                     linkUrl={"https://www.linkedin.com/in/otienosamwel/"}/>
@@ -27,7 +27,6 @@ export default function Footer() {
                     <SpaceMedium/>
                     <Contact/>
                 </div>
-                <SpaceMedium/>
             </div>
         </footer>
     )
@@ -38,10 +37,10 @@ function IconButton({imageUrl = " ", linkUrl = ""}) {
         <motion.div whileHover={{scale: 1.2}} whileTap={{scale: 1.3}}>
             <Link href={linkUrl}>
                 <Image src={imageUrl}
-                       width={47}
-                       height={47}
+                       width={30}
+                       height={30}
                        alt={"social link"}
-                       className={"w-10 h-10"}/>
+                       className={"w-8 h-8"}/>
             </Link>
         </motion.div>
     )

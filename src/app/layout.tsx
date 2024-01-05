@@ -1,39 +1,36 @@
 import './globals.css'
 import Header from "@/app/components/Header";
-import Footer, {SpaceMedium} from "@/app/components/Footer"
+import Footer from "@/app/components/Footer"
+import Script from 'next/script'
+import { tsParticles } from "@tsparticles/engine";
+import {particleConfig} from "@/app/particlesUtil";
 
 export const metadata = {
     title: 'Samwel Otieno',
-    description: 'Personal website',
+    description: 'Your reflections in me, fade indeed - Samwel Otieno.',
 }
 
 export default function RootLayout({children,}: {
     children: React.ReactNode
 }) {
+
+    tsParticles.load({
+        id: "tsparticles",
+        options: {particleConfig},
+    });
+
     return (
-        <html lang="en" className={"antialiased bg-black text-gray-200"}>
-        <body className={"flex flex-col justify-between"}>
+        <html lang="en" className={"flex flex-col antialiased bg-black text-gray-200 justify-between h-fit"}>
+
+        <div id="tsparticles"></div>
+
+        <body id={"perticles-js"} className={"flex flex-col justify-between min-h-screen"}>
         <Header/>
         {children}
-
-        <div>
-            <SpaceMedium/>
-            <SpaceMedium/>
-            <SpaceMedium/>
-            <SpaceMedium/>
-            <SpaceMedium/>
-            <SpaceMedium/>
-        </div>
-
-        <hr className={"opacity-20 mx-auto w-1/4"}/>
-
-        <div>
-            <SpaceMedium/>
-            <SpaceMedium/>
-            <SpaceMedium/>
-        </div>
         <Footer/>
         </body>
+
+        <Script src="tsparticles.engine.min.js"></Script>
         </html>
     )
 }
