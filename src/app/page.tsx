@@ -1,11 +1,10 @@
 "use client"
 
 import Image from "next/image";
-import {SpaceLarge, SpaceMedium} from "@/app/components/Footer";
 import Link from "next/link";
 import {motion} from "framer-motion";
-import {NoSSR} from "next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr";
 import {experienceItems, personalProjects, personalProjectsUnderConstruction, openSourceContributions} from "./components/home/data";
+import { SpaceLarge, SpaceMedium, SpaceSmall } from "./components/spacers";
 
 
 export default function Page() {
@@ -138,7 +137,6 @@ function ExperienceItem({company, timePeriod, skills, technologies}: {
 
 function PersonalProjects({personalProjects}: { personalProjects: PersonalProject[] }) {
     return (
-        <NoSSR>
             <div id={"projects"} className={"flex flex-col"}>
 
 
@@ -184,14 +182,12 @@ function PersonalProjects({personalProjects}: { personalProjects: PersonalProjec
                 </ul>
 
             </div>
-        </NoSSR>
 
     )
 }
 
 function UnderConstruction({personalProjects}: { personalProjects: PersonalProject[] }) {
     return (
-        <NoSSR>
             <div id={"projects"} className={"flex flex-col"}>
 
 
@@ -235,10 +231,7 @@ function UnderConstruction({personalProjects}: { personalProjects: PersonalProje
                         <hr className={"p-2 opacity-20"}/>
                     </li>))}
                 </ul>
-
             </div>
-        </NoSSR>
-
     )
 }
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Contact from "@/app/components/Contact";
 import {motion} from "framer-motion";
+import { SpaceMedium } from "./spacers";
 
 export default function Footer() {
     return (
@@ -47,18 +48,3 @@ function IconButton({imageUrl = " ", linkUrl = ""}) {
     )
 }
 
-export function SpaceMedium() {
-    return (
-        <div className={"w-4 h-4"}>
-        </div>
-    )
-}
-
-
-export function SpaceLarge() {
-    return (
-        <div className={"w-16 h-16"}>
-
-        </div>
-    )
-}

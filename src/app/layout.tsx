@@ -1,6 +1,7 @@
 import './globals.css'
 import Header from "@/app/components/Header";
-import Footer, { SpaceLarge } from "@/app/components/Footer"
+import Footer from "@/app/components/Footer"
+import { SpaceLarge } from './components/spacers-server';
 
 export const metadata = {
     title: 'Samwel Otieno',
