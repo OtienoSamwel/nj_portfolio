@@ -15,13 +15,8 @@ export default function RootLayout({children,}: {
         <body className={"flex flex-col justify-between"}>
         <Header/>
         {children}
-
-        <div>
-            <SpaceLarge/>
-        </div>
-
+        <SpaceLarge/>
         <hr className={"opacity-20 mx-auto w-1/4"}/>
-
         <SpaceLarge/>
         <Footer/>
         </body>

@@ -6,6 +6,7 @@ import Link from "next/link";
 import {motion} from "framer-motion";
 import {NoSSR} from "next/dist/shared/lib/lazy-dynamic/dynamic-no-ssr";
 import {experienceItems, personalProjects, personalProjectsUnderConstruction, openSourceContributions} from "./components/home/data";
+import { PersonalProject } from "./models";
 
 
 export default function Page() {
@@ -2348,20 +2349,6 @@ function CreativeGraphic() {
     )
 }
 
-export interface ExperienceItemModel {
-    company: String,
-    timePeriod: String,
-    skills: string[],
-    technologies: string[]
-}
-
-
-export interface PersonalProject {
-    name: String,
-    description: String,
-    link: String,
-    technologies: string[]
-}
 
 function TechnologyIcon({name}: { name: string }) {
     return (

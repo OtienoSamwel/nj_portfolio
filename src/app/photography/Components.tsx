@@ -30,7 +30,6 @@ export function Gallery(
     {images, handleClick}: { images: ImageModel[], handleClick: (model: ImageModel, index: number) => void }) {
     return (
         <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
-
             <Masonry columnsCount={5}>
                 {images.map((item, index) => (
                     <motion.div key={index}>
@@ -39,9 +38,7 @@ export function Gallery(
                         }}/>
                     </motion.div>))}
             </Masonry>
-
         </ResponsiveMasonry>
-
     )
 }
 
@@ -53,12 +50,9 @@ export function Model({openModal, closeModal, children, onNext, onPrevious}: {
     onNext: () => void,
     onPrevious: () => void
 }) {
-
     const dialogRef = useRef()
-
     useEffect(() => {
         if (openModal) {
-
             // @ts-ignore
             dialogRef.current.showModal()
         } else {
@@ -72,13 +66,9 @@ export function Model({openModal, closeModal, children, onNext, onPrevious}: {
         // @ts-ignore
         <motion.dialog ref={dialogRef} onCancel={closeModal}
                        className={"flex flex-col justify-center rounded-xl  h-full w-full focus:border-0 focus:ring-0 border-0 ring-0 outline-0"}>
-
             <motion.div className={"flex  items-center bg-opacity-0"}>
-
                 <PreviousButton onClick={onPrevious}/>
-
                 {children}
-
                 <NextButton onClick={onNext}/>
             </motion.div>
         </motion.dialog>

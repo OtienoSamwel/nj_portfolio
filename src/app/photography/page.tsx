@@ -5,7 +5,6 @@ import {createClient} from "@supabase/supabase-js";
 import {Gallery, Model, SingleImage} from "@/app/photography/Components";
 
 export default function Page() {
-
     const [modal, setModal] = useState(false)
     const [selectedImageUri, setSelectedImageUri] = useState("")
     const [selectedImageIndex, setSelectedImageIndex] = useState(0)
@@ -24,12 +23,7 @@ export default function Page() {
         return baseUrl + name
     }
 
-    useEffect(() => {
-            console.log("called on mount")
-            getDataFromSupabase()
-        }
-        , [])
-
+    useEffect(() => getDataFromSupabase(), [])
 
     function getDataFromSupabase() {
         // @ts-ignore
@@ -45,8 +39,8 @@ export default function Page() {
                 images.push({url: url, width: width, height: height})
             })
             setPhotoList(images)
-        }).catch(
-            (e) => console.log("an error occurred", e)
+        }).catch((e) =>
+            console.log("an error occurred", e)
         )
     }
 
@@ -71,7 +65,6 @@ export default function Page() {
         setSelectedImageIndex(previousIndex)
     }
 
-
     return (
         <div className={""}>
             {photoList && <Gallery images={photoList} handleClick={onImageClick}/>}
@@ -85,11 +78,9 @@ export default function Page() {
                     }}/>
                 </Model>)
             }
-
         </div>
     )
 }
-
 
 export interface ImageModel {
     url: string
